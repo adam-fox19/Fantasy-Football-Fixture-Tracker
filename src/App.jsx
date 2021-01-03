@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './components/header/Header.jsx';
-import Key from './components/key.jsx';
+// import GameweekButtonGroup from './components/buttongroups/GameweekButtonGroup.jsx';
+// import GridTypeButtonGroup from './components/buttongroups/GridTypeButtonGroup.jsx';
+// import RadioButtonGroup from './components/buttongroups/RadioButtonGroup.jsx';
+// import TeamsDropdown from './components/teamsdropdown/TeamsDropdown.jsx';
 import FixtureGrid from './components/grid/FixtureGrid.jsx';
+import Key from './components/Key.jsx';
+
+
 
 import './App.css';
 
@@ -74,11 +80,6 @@ export default App;
 
 
 
-
-// import GameweekButtonGroup from './buttongroups/GameweekButtonGroup.jsx';
-// import GridTypeButtonGroup from './buttongroups/GridTypeButtonGroup.jsx';
-// import RadioButtonGroup from './buttongroups/RadioButtonGroup.jsx';
-// import TeamsDropdown from './teamsdropdown/TeamsDropdown.jsx';
 
 
 
