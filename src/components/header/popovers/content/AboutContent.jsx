@@ -30,7 +30,7 @@ const AboutContent = (props) => {
         </div>
         <div className='content-box col-lg-5'>
           <img className='fpl-graphic'
-               src='fplgraphic.png'
+               src='./media/fplgraphic.png'
                alt='Graphic of Fantasy Football Game & Premier League logo'>
           </img>
         </div>

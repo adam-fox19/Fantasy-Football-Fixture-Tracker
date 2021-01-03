@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './components/header/Header.jsx';
-// import GameweekButtonGroup from './components/buttongroups/GameweekButtonGroup.jsx';
-// import GridTypeButtonGroup from './components/buttongroups/GridTypeButtonGroup.jsx';
-// import RadioButtonGroup from './components/buttongroups/RadioButtonGroup.jsx';
-// import TeamsDropdown from './components/teamsdropdown/TeamsDropdown.jsx';
+import GameweekButtonGroup from './components/buttongroups/GameweekButtonGroup.jsx';
+import GridTypeButtonGroup from './components/buttongroups/GridTypeButtonGroup.jsx';
+import RadioButtonGroup from './components/buttongroups/RadioButtonGroup.jsx';
+import TeamsDropdown from './components/teamsdropdown/TeamsDropdown.jsx';
 import FixtureGrid from './components/grid/FixtureGrid.jsx';
 import Key from './components/Key.jsx';
-
-
 
 import './App.css';
 
@@ -52,6 +50,32 @@ const App = () => {
        // note empty deps array here means useEffect only runs once on render
     }, []);
 
+    // callback passed into GameweekButtonGroup component, sets number of gws to display
+    const set_gws_to_display = (dataFromChild) => {
+      setGrid(dataFromChild);
+    }
+
+    // callback passed into RadioButtonGroup component, sets order of teams to display (alphabetical, easiest or hardest)
+    const set_grid_sort_order = (dataFromChild) => {
+      set_grid_sorted_by(dataFromChild);
+    }
+
+    const change_grid_type = (dataFromChild) => {
+      set_grid_type(dataFromChild);
+    }
+
+    /* callback passed down into individual TeamsDropdownItem components,
+    sets display property of each nested team object & therefore state of each team in grid */
+    const set_team_display = (teamNameFromChild, booleanFromChild) => {
+      setTeams({
+                ...teams,
+                [teamNameFromChild] : {
+                    ...teams[teamNameFromChild],
+                    display: booleanFromChild
+                  }
+                });
+    }
+
 
 
   // App waits for backend API response to set states of teams & gw objects before rendering App.
@@ -60,13 +84,35 @@ const App = () => {
       return (
         <div>
           <Header />
-          <Key />
+          <GridTypeButtonGroup
+            firstButton='General'
+            secondButton='Goals potential'
+            thirdButton='Clean sheet potential'
+            callback={change_grid_type}
+          />
+          <GameweekButtonGroup
+            firstButton='4 weeks'
+            secondButton='6 weeks'
+            thirdButton='8 weeks'
+            fourthButton='All'
+            set_gws_to_display={set_gws_to_display}
+            remaining_gws={Object.keys(gw_object).length}
+          />
+          <RadioButtonGroup
+            set_grid_sorted_by={set_grid_sort_order}
+            grid_type={grid_type}
+          />
           <FixtureGrid
             gwObject={gw_object}
             grid={grid}
             teams={teams}
             grid_sorted_by={grid_sorted_by}
             grid_type={grid_type}
+          />
+          <Key />
+          <TeamsDropdown
+            teams={teams}
+            set_team_display={set_team_display}
           />
         </div>
       );
@@ -77,69 +123,3 @@ const App = () => {
   }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//   // callback passed into GameweekButtonGroup component, sets number of gws to display
-//   const set_gws_to_display = (dataFromChild) => {
-//     setGrid(dataFromChild);
-//   }
-//
-//   // callback passed into RadioButtonGroup component, sets order of teams to display (alphabetical, easiest or hardest)
-//   const set_grid_sort_order = (dataFromChild) => {
-//     set_grid_sorted_by(dataFromChild);
-//   }
-//
-//   const change_grid_type = (dataFromChild) => {
-//     set_grid_type(dataFromChild);
-//   }
-//
-//   /* callback passed down into individual TeamsDropdownItem components,
-//   sets display property of each nested team object & therefore state of each team in grid */
-//   const set_team_display = (teamNameFromChild, booleanFromChild) => {
-//     setTeams({
-//               ...teams,
-//               [teamNameFromChild] : {
-//                   ...teams[teamNameFromChild],
-//                   display: booleanFromChild
-//                 }
-//               });
-//   }
-//
-
-
-//         <GridTypeButtonGroup
-//           firstButton='General'
-//           secondButton='Goals potential'
-//           thirdButton='Clean sheet potential'
-//           callback={change_grid_type}
-//         />
-//         <GameweekButtonGroup
-//           firstButton='4 weeks'
-//           secondButton='6 weeks'
-//           thirdButton='8 weeks'
-//           fourthButton='All'
-//           set_gws_to_display={set_gws_to_display}
-//           remaining_gws={Object.keys(gw_object).length}
-//         />
-//         <RadioButtonGroup
-//           set_grid_sorted_by={set_grid_sort_order}
-//           grid_type={grid_type}
-//         />
-
-//         <TeamsDropdown
-//           teams={teams}
-//           set_team_display={set_team_display}
-//         />

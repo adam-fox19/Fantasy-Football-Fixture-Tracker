@@ -23,13 +23,13 @@ const DataContent = () => {
       <div className='data-popover-image-wrapper'>
         <div className='indiv-image-wrapper wrapper-left'>
           <img
-               src='api-football.png'
+               src='./media/api-football.png'
                alt='Homepage of the api-football API'>
           </img>
         </div>
         <div className='indiv-image-wrapper'>
           <img
-               src='fplgraphic.png'
+               src='./media/fplgraphic.png'
                alt='Graphic of Fantasy Football Game & Premier League logo'>
           </img>
         </div>

@@ -2,11 +2,6 @@
 /* HTML elements                                 | */
 /* ----------------------------------------------- */
 
-body {
-  position: relative;
-
-}
-
 table {
   height: 375px;
   width: 100%;
@@ -65,15 +60,8 @@ table {
 /* Mobile design (under 576px)                     */
 /* ----------------------------------------------- */
 
-body {
-  padding: 0 7px;
-}
 
 @media only screen and (min-width: 360px) {
-  body {
-    padding: 0 15px;
-  }
-
   th {
     padding: 5px;
   }
@@ -602,10 +590,6 @@ body {
 /* ----------------------------------------------- */
 
 @media only screen and (min-width: 576px) {
-    body {
-      padding: 0 30px;
-    }
-
     .navbar {
       margin: 0 -30px;
     }
