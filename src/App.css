@@ -1,38 +1,825 @@
-.App {
-  text-align: center;
+/* ----------------------------------------------- */
+/* HTML elements                                 | */
+/* ----------------------------------------------- */
+
+body {
+  position: relative;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table {
+  height: 375px;
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  min-width: 350px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ----------------------------------------------- */
+/* Site wide                                     | */
+/* ----------------------------------------------- */
+
+.custom-filter {
+  filter: grayscale(var(--value, 100%));
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.radio-button-group, .teams-dropdown, table, .btn-group, .p-margin-top {
+  margin-top: 15px;
+}
+
+.dropdown-item label {
+  margin-left: 5px;
+}
+
+/* fixture difficulty key */
+
+.very-easy {
+  background-color: #FFFFD4;
+}
+.easy {
+  background-color: #FEE391;
+}
+.average {
+  background-color: #FEC44F;
+}
+
+.hard {
+  background-color: #FE0000FF;
+  color: white;
+}
+.very-hard {
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.blank {
+  background-color: gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.double {
+  background-color: #FFFFD4;
+}
+
+
+/* ----------------------------------------------- */
+/* Mobile design (under 576px)                     */
+/* ----------------------------------------------- */
+
+body {
+  padding: 0 7px;
+}
+
+@media only screen and (min-width: 360px) {
+  body {
+    padding: 0 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  th {
+    padding: 5px;
+  }
+}
+
+/* ----------------------------------------------- */
+/* Navbar styles                                   | */
+/* ----------------------------------------------- */
+
+.navbar {
+  margin: 0 -15px;
+  background-color: #F5FCFF;
+  font-weight: 500;
+}
+
+.navbar-brand {
+  color: #37003c;
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-mobile {
+  display: inline;
+}
+
+.navbar-brand {
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 265px) {
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 360px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+}
+
+.navbar-toggler {
+  font-size: 1.2rem;
+  position: absolute;
+  right: 15px;
+  top: 9px;
+}
+
+@media only screen and (min-width: 360px) {
+  .navbar-toggler {
+    font-size: 1.75rem;
+    top: 8px;
+  }
+}
+
+.navbar-collapse {
+  height: auto;
+  top: 40px;
+}
+
+@media only screen and (min-width: 265px) {
+  .navbar-collapse {
+    right: 225px;
+    width: 0;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  .navbar-collapse {
+    right: 0;
+  }
+}
+
+/* ----------------------------------------------- */
+/* Popovers                                      | */
+/* ----------------------------------------------- */
+
+.custom-popover {
+  background-color: #ffff55;
+  height: auto;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 225px;
+  width: 280px;
+  z-index: 1000;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.custom-popover p {
+  font-weight: normal;
+}
+
+.custom-popover ul {
+  font-weight: normal;
+}
+
+.custom-popover ol {
+  font-weight: normal;
+}
+
+.custom-popover h3,  {
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+@media only screen and (min-width: 360px) {
+  .contact-popover {
+    width: 320px;
+  }
+
+  .custom-popover {
+    top: 90px;
+  }
+}
+
+.popover-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* about popover  */
+.about-popover-wrapper {
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.fpl-graphic {
+  width: 100%;
+}
+
+.about-popover ul {
+  padding-left: 7.5px;
+}
+
+.popover-list li {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.teams-dropdown .popover-form-dummy-buttons {
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 430px) {
+  .custom-popover.about-popover {
+    width: 415px;
+  }
+}
+
+.lg-show {
+  display: none;
+}
+
+.popover-form-dummy-buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.radio-button-group.about-popover {
+  text-align: center;
+  top: 0;
+}
+
+.custom-popover.table-type-popover {
+  width: 95%;
+}
+
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  width: 10%;
+  margin: 0;
+  top: 70px;
+}
+
+.carousel-control-prev {
+  left: 40%;
+}
+
+.carousel-control-next {
+  right: 40%;
+}
+
+.dummy-buttons-table-type-popover {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+}
+
+@media only screen and (min-width: 448px) {
+  .dummy-buttons-table-type-popover {
+    width: 100%;
+  }
+}
+
+.carousel .row {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-indicators li {
+  background-color: black;
+}
+
+.table-type-question {
+  font-style: italic;
+}
+
+.bottom-carousel-p {
+  margin-bottom: 40px;
+}
+
+.custom-popover.data-popover {
+  width: 90%;
+  text-align: left;
+}
+
+.data-popover-image-wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.data-popover-image-wrapper img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.indiv-image-wrapper {
+  width: 100%;
+  padding: 10px;
+}
+
+.variables-h3 {
+  text-align: center;
+}
+
+.variables-wrapper {
+  margin: 10px auto 20px;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.1);
+  border-left: none;
+  border-right: none;
+  padding: 15px 0;
+}
+
+.variables-wrapper li {
+  padding: 5px 0;
+}
+
+.contact-para {
+  margin: 0 auto;
+  width: 80%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+
+/* popover end */
+
+.nav-dropdown-list .nav-link {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  margin-right: 15px;
+  text-align: left;
+}
+
+@media only screen and (min-width: 360px) {
+  .navbar-nav.nav-dropdown-list {
+    flex-direction: row;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 0;
+  }
+}
+
+
+/* ----------------------------------------------- */
+/* Button styles                                 | */
+/* ----------------------------------------------- */
+
+.btn-group label {
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 398px) {
+  .btn-group label {
+    font-size: 0.9rem;
+  }
+}
+
+.btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active,
+.show>.btn.dropdown-toggle {
+  background-color: #37003c;
+  color: white;
+  font-weight: 500;
+}
+
+.btn {
+  background-color: #F5FCFF;
+  color: black;
+  font-size: 0.9rem;
+  border: solid 1px #37003c
+}
+
+.radio-button-group {
+  font-size: 0.9rem;
+}
+
+.btn-group, .radio-button-group {
+  display: block;
+}
+
+.teams-dropdown {
+  position: relative;
+  width: 100%;
+  top: 75px;
+}
+
+@media only screen and (min-width: 380px) {
+  .teams-dropdown {
+    top: 0;
+  }
+}
+
+.teams-dropdown-wrapper {
+  margin-bottom: 100px;
+}
+
+.dropdown-item {
+  display: inline-block;
+  width: 90%;
+}
+
+.dropdown-menu {
+  width: 50%;
+  height: auto;
+}
+
+/* ----------------------------------------------- */
+/* Grid styles                                   | */
+/* ----------------------------------------------- */
+
+.table-wrapper {
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.gameweek-heading {
+  text-align: center;
+  text-decoration: underline;
+  background-color: #F5FCFF;
+  border: 4px white solid;
+}
+
+.team-name {
+  width: 140px;
+  background-color: #F5FCFF;
+  border: 4px white solid;
+  padding-left: 5px;
+}
+
+.fixture-cell {
+  border: 4px white solid;
+  text-align: center;
+  height: 40px;
+}
+
+@media only screen and (min-width: 450px) {
+  table {
+    font-size: 0.875rem;
+  }
+
+  .team-name {
+    width: 165px;
+    padding-left: 10px;
+  }
+}
+
+/* ----------------------------------------------- */
+/* Key styles                                    | */
+/* ----------------------------------------------- */
+
+.key {
+  height: 25px;
+  margin-top: 20px;
+  position: relative;
+}
+
+@media only screen and (min-width: 380px) {
+  .key {
+    position: absolute;
+    right: 15px;
+  }
+}
+
+.key-title {
+  bottom: 5px;
+  display: inline-block;
+  padding-right: 10px;
+  position: relative;
+}
+
+.key-colours {
+  height: 25px;
+  display: inline-block;
+  position: relative;
+  width: 150px;
+}
+
+.key-box {
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+}
+
+.key-tag {
+  position: absolute;
+  font-size: 0.85rem;
+  top: 25px;
+  font-style: italic;
+}
+
+.key-tag-easy {
+  right: 110px;
+}
+
+.key-tag-hard {
+  right: 0;
+}
+
+.key-tag-blank {
+  right: 117px;
+}
+
+.key-colours-blank-double {
+  display: block;
+  top: 25px;
+  left: 40px;
+}
+
+/* popover key */
+.popover-key {
+  margin-top: 20px;
+  margin-bottom: 140px;
+}
+
+.blank-popover, .double-popover {
+  display: block;
+}
+
+.double-popover {
+  margin-top: 30px
+}
+
+.about-popover .key-colours {
+  width: 200px;
+  height: 35px;
+}
+
+.about-popover .key-tag-easy {
+  right: 160px;
+}
+
+.about-popover .key-tag {
+  top: 35px;
+}
+
+.about-popover .key-title {
+  bottom: 10px;
+  font-weight: bold;
+}
+
+.key-tag-blank-popover {
+  right: 167px;
+}
+
+#double-popover-tag {
+  position: relative;
+  top: 0;
+}
+
+.key-colours-blank-double.key-popover {
+  left: 0;
+}
+
+@media only screen and (min-width: 360px) {
+  .key-colours-blank-double.key-popover {
+    left: 40px;
+  }
+}
+
+/* ----------------------------------------------- */
+/* Mobile upwards design (over 576px)              */
+/* ----------------------------------------------- */
+
+@media only screen and (min-width: 576px) {
+    body {
+      padding: 0 30px;
+    }
+
+    .navbar {
+      margin: 0 -30px;
+    }
+
+   .nav-desktop {
+     display: inline;
+   }
+
+   .nav-mobile {
+     display: none;
+   }
+
+   .navbar-collapse {
+     height: 0;
+   }
+
+   .navbar-collapse, .nav-dropdown-list {
+     display: none;
+   }
+
+   .custom-popover {
+     width: 70%;
+   }
+
+   .custom-popover.about-popover {
+     width: 70%;
+   }
+
+   .close {
+     right: 10px;
+     top: 10px;
+   }
+
+   .variables-wrapper {
+     width: 90%;
+   }
+
+   .custom-popover.data-popover {
+     width: 80%;
+   }
+
+   table {
+     height: 250px;
+   }
+
+   .dropdown-menu {
+     width: 65%;
+     height: auto;
+   }
+
+   .dropdown-item {
+     width: 50%;
+   }
+
+   .key {
+     right: 30px;
+   }
+
+   .info-div p {
+     width: 60%;
+   }
+}
+
+
+@media only screen and (min-width: 590px) {
+  .dummy-buttons-table-type-popover {
+    display: inline;
+    width: auto;
+  }
+
+  .carousel-control-next, .carousel-control-prev {
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .carousel .row {
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+}
+
+
+@media only screen and (min-width: 640px) {
+  .custom-popover.table-type-popover {
+    width: 90%;
+  }
+  .carousel-control-next, .carousel-control-prev {
+    width: 15%;
+  }
+}
+
+@media only screen and (min-width: 716px) {
+  .custom-popover.table-type-popover {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 729px) {
+  .dropdown-item {
+    width: 33%;
+  }
+  .dropdown-menu {
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width: 742px) {
+
+  .indiv-image-wrapper {
+    width: 50%;
+    display: inline-block;
+  }
+
+  .wrapper-left img {
+    width: 90%
+  }
+
+  .data-popover-image-wrapper img {
+    margin-bottom: 0;
+  }
+
+  .variables-wrapper {
+    width: 80%;
+  }
+
+  .custom-popover.data-popover {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .custom-popover {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 860px) {
+  .gw-btn-group {
+    display: inline-block;
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+
+  .radio-button-group {
+    display: inline-block;
+    position: relative;
+    top: 15px;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (min-width: 860px) {
+  .info-div {
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (min-width: 927px) {
+
+  table {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .btn-group-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .radio-button-group-wrapper, .teams-dropdown-wrapper {
+    margin-left: 5%;
+  }
+
+  .gw-btn-group, .key-wrapper {
+    margin-right: 5%;
+  }
+
+  .dropdown-item {
+    width: 25%;
+  }
+}
+
+
+@media only screen and (min-width: 940px) {
+  .carousel {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .lg-show {
+    display: block;
+  }
+  .popover-key {
+    margin-bottom: 120px;
+  }
+  .key-colours-blank-double.key-popover {
+    left: 0;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+  .dropdown-item {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 1196px) {
+  .key-colours-blank-double.key-popover {
+    left: 40px;
   }
 }
