@@ -1,0 +1,17 @@
+body {
+    position: relative;
+    padding: 0 7px;
+}
+
+
+@media only screen and (min-width: 360px) {
+  body {
+    padding: 0 15px;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+    body {
+      padding: 0 30px;
+    }
+}
