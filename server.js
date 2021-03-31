@@ -96,9 +96,9 @@ app.post('/', (req, res) => {
   });
 
   res.redirect('/');
-})
+});
 
 
 app.listen(port, () => {
-  (console.log('server up and running on port' + port))
+  console.log('server up and running on port ' + port);
 });
