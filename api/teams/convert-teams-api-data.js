@@ -26,7 +26,7 @@ const allocate_team_fixtures = (gw_object, teams) => {
 
     for (let i = 0; i < Object.keys(teams).length; i++) {
 
-      team_name = Object.keys(teams)[i];
+        team_name = Object.keys(teams)[i];
 
         let [arr_of_gws, arr_of_gw_numbers] = [Object.values(gw_object), Object.keys(gw_object)];
 
@@ -102,8 +102,8 @@ const allocate_team_fixtures = (gw_object, teams) => {
             fixture_id++;
           }
 
-          // blank gameweek - one or more teams have no fixture
-          if (arr_of_gws[x].blank_gw) {
+          // blank gameweek only - one or more teams have no fixture
+          if (arr_of_gws[x].blank_gw && !arr_of_gws[x].double_gw) {
 
             // teams who do have fixtures processed normally
             if (arr_of_gws[x].blank_gw_teams.includes(team_name) === false) {
@@ -134,6 +134,24 @@ const allocate_team_fixtures = (gw_object, teams) => {
             opp_display = '';
 
             let gw_fixtures = arr_of_gws[x].fixtures;
+
+            // handles instances of blank & double gws
+            if (arr_of_gws[x].blank_gw_teams.includes(team_name)) {
+
+              console.log('yes');
+
+              // blank space displayed in fixture table (as opposed to usual opponent team name)
+              opp_display = ' ';
+
+              // blank gameweeks are given full weighting & blank css class
+              [gen_counter, attack_counter, defense_counter] = [gen_counter + 40, gen_counter + 40, gen_counter + 40];
+              [gen_css_class, attack_css_class, defense_css_class] = ['blank', 'blank', 'blank'];
+
+              push_team_fixtures(opp_display);
+              fixture_id++;
+              continue;
+
+            }
 
             // teams with only one fixture processed normally
             if (arr_of_gws[x].double_gw_teams.includes(team_name) === false) {
