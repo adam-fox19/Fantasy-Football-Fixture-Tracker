@@ -138,8 +138,6 @@ const allocate_team_fixtures = (gw_object, teams) => {
             // handles instances of blank & double gws
             if (arr_of_gws[x].blank_gw_teams.includes(team_name)) {
 
-              console.log('yes');
-
               // blank space displayed in fixture table (as opposed to usual opponent team name)
               opp_display = ' ';
 
