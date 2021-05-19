@@ -53,7 +53,7 @@ const transporter = nodemailer.createTransport({
 // React app calls /express_backend before render
 app.get('/express_backend', (req, res) => {
 
-  db.get_users();
+  // db.get_users();
 
   /* makes call to fixtures API, converts data & creates gw_object.
      Callback function passed in calls teams_api_call */
