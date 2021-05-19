@@ -18,7 +18,7 @@ require('dotenv').config();
 
 const fixtures_api_call = require(__dirname + '/api/fixtures/fixtures-api-call.js');
 const teams_api_call = require(__dirname + '/api/teams/teams-api-call.js');
-const db = require(__dirname + '/db/queries.js');
+// const db = require(__dirname + '/db/queries.js');
 
 // ----------------------------------------------------------
 // Express app set up & API call
