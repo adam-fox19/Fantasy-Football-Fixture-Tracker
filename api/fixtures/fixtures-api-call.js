@@ -19,9 +19,6 @@ const convert_fixtures_api_data = require(__dirname + '/convert-fixtures-api-dat
 
 const fixtures_api_call = (callback) => {
 
-  // Currently callback here is our teams api call & express_backend route GET response
-  callback(gw_object);
-
   https.get(process.env.FIXTURES_API_PATH, (res) => {
 
     let data = '';

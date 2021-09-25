@@ -23,9 +23,6 @@ const options = {
 
 const teams_api_call = (response, gw_object, callback) => {
 
-  // currently callback here is our express_backend route GET response
-  callback(response, teams);
-
   https.get(process.env.TEAMS_API_ENDPOINT, options, (res) => {
 
     let data = '';
