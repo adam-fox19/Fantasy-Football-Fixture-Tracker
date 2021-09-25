@@ -18,7 +18,6 @@ require('dotenv').config();
 
 const fixtures_api_call = require(__dirname + '/api/fixtures/fixtures-api-call.js');
 const teams_api_call = require(__dirname + '/api/teams/teams-api-call.js');
-// const db = require(__dirname + '/db/queries.js');
 
 // ----------------------------------------------------------
 // Express app set up & API call
@@ -52,8 +51,6 @@ const transporter = nodemailer.createTransport({
 
 // React app calls /express_backend before render
 app.get('/express_backend', (req, res) => {
-
-  // db.get_users();
 
   /* makes call to fixtures API, converts data & creates gw_object.
      Callback function passed in calls teams_api_call */

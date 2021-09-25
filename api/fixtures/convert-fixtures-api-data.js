@@ -77,7 +77,7 @@ const add_to_gw_object = (gw_object, staging_array, gw_number) => {
 
 /*
   API data contains teams identified by a numeric key (1 - 20)
-  For some reason this doesn't quite correspond to alphabetical order for the 20/21 season
+  For some reason this doesn't quite correspond to alphabetical order in the API data
   Leeds and Leicester are the wrong way round in the API data
   api_team_names represents this numeric key structure, and correctly maps across team names for each fixture.
 */
@@ -85,22 +85,22 @@ const add_to_gw_object = (gw_object, staging_array, gw_number) => {
 const api_team_names = {
   1: 'Arsenal',
   2: 'Aston Villa',
-  3: 'Brighton',
-  4: 'Burnley',
-  5: 'Chelsea',
-  6: 'Crystal Palace',
-  7: 'Everton',
-  8: 'Fulham',
+  3: 'Brentford',
+  4: 'Brighton',
+  5: 'Burnley',
+  6: 'Chelsea',
+  7: 'Crystal Palace',
+  8: 'Everton',
   9: 'Leicester',
   10: 'Leeds',
   11: 'Liverpool',
   12: 'Manchester City',
   13: 'Manchester United',
   14: 'Newcastle',
-  15: 'Sheffield Utd',
+  15: 'Norwich',
   16: 'Southampton',
   17: 'Tottenham',
-  18: 'West Brom',
+  18: 'Watford',
   19: 'West Ham',
   20: 'Wolves'
 }

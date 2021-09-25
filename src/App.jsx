@@ -84,8 +84,6 @@ const App = () => {
       return (
         <div>
           <Header />
-          <p id="end-of-season-note">*As the 20/21 season is now nearly finished, this tracker is generated from a static
-              grab of the Premier League fixtures & data as of the middle of January 2021!</p>
           <GridTypeButtonGroup
             firstButton='General'
             secondButton='Goals potential'

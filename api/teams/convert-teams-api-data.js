@@ -315,12 +315,6 @@ const convert_teams_api_data = (raw_teams_data, gw_object) => {
         case 'Aston Villa':
           teams[team.teamName].short_name = 'AVL';
           break;
-        case 'West Brom':
-          teams[team.teamName].short_name = 'WBA';
-          break;
-        case 'Sheffield Utd':
-          teams[team.teamName].short_name = 'SHU';
-          break;
         case 'West Ham':
           teams[team.teamName].short_name = 'WHU';
           break;
